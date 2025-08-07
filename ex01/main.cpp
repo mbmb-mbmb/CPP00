@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+#include "phonebook.hpp"
 
 int main (int ac, char **av)
 {
@@ -8,7 +7,9 @@ int main (int ac, char **av)
 		std::cout << "too many argumnets or something" << std::endl;
 		return(0);
 	}
-	std::string input;
+	std::deque<Contact> phonebook;
+	std::string			input;
+
 	std::cout<<"blaabla?" << std::endl;
 	while(input != "EXIT")
 	{
