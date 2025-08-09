@@ -4,8 +4,8 @@
 #include <iostream>
 #include <string>
 
-class Contact {
-
+class Contact
+{
 	public:
 	Contact();
 	//destructor??
