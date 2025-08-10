@@ -1,6 +1,18 @@
 #include<iostream>
 #include <string>
-#include <algorithm>
+
+std::string	ft_transform(std::string input)
+{
+	//std::string	output;
+	int			i = 0;
+
+	while(i < input.size())
+	{
+		input[i] = std::toupper(static_cast<unsigned char>(input[i]));
+		i++;
+	}
+	return (input);
+}
 
 int		main(int ac, char **av)
 {
@@ -15,7 +27,8 @@ int		main(int ac, char **av)
 	while(i < ac)
 	{
 		input = av[i];
-		transform(input.begin(), input.end(), input.begin(), ::toupper);
+
+		input = ft_transform(input);
 		std::cout << input;
 		std::cout << " ";
 		i++;
