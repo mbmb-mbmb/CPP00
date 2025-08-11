@@ -8,13 +8,18 @@ class Contact
 {
 	public:
 	Contact();
-	//destructor??
 
 	void	setFirstName(const std::string& first_name);
 	void	setLastName(const std::string& last_name);
 	void	setNicname(const std::string& nic_name);
 	void	setPhoneNumber(const std::string& phone_number);
 	void	setDarkestSecret(const std::string& darkest_secret);
+
+	std::string getFirstName() const;
+	std::string getLastName() const;
+	std::string getNicname() const;
+	std::string getPhoneNumber() const;
+	std::string getDarkestSecret() const;
 
 	private:
 		std::string first_name;

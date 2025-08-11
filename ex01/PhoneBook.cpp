@@ -35,7 +35,15 @@ void	PhoneBook::addContact()
 
 void	PhoneBook::searchContact() const
 {
-	std::cout << "search placeholder" << std::endl;
+	std::cout << phonebook[0].getFirstName();
+	std::cout << " | ";
+	std::cout << phonebook[0].getLastName();
+	std::cout << " | ";
+	std::cout << phonebook[0].getNicname();
+	std::cout << " | ";
+	std::cout << phonebook[0].getPhoneNumber();
+	std::cout << " | ";
+	std::cout << phonebook[0].getDarkestSecret() << std::endl;;
 }
 
 void	PhoneBook::displayOptions() const
