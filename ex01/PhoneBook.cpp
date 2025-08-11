@@ -27,7 +27,9 @@ void	PhoneBook::addContact()
 	newContact.setPhoneNumber(phone_number);
 	newContact.setDarkestSecret(darkest_secret);
 
-	contacts.push_back(newContact);
+	phonebook[Contact_index] = newContact;
+	PhoneBook::Contact_index = (PhoneBook::Contact_index + 1) % 8;
+
 	std::cout << "Contact added successfully!" << std::endl;
 }
 

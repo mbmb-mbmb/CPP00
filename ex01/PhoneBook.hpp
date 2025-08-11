@@ -1,8 +1,6 @@
 #ifndef PHONEBOOK_HPP
-
 #define PHONEBOOK_HPP
 
-#include <deque>
 #include "Contact.hpp"
 
 class PhoneBook
@@ -14,8 +12,8 @@ class PhoneBook
 	void displayOptions() const;
 
 	private:
-	std::deque<Contact> contacts;
-	static const int MAX_CONTACTS = 8;
+	Contact	phonebook[8];
+	int		Contact_index = 0;
 };
 
 #endif
