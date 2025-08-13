@@ -28,7 +28,7 @@ void	PhoneBook::addContact()
 	newContact.setDarkestSecret(darkest_secret);
 
 	phonebook[Contact_index] = newContact;
-	PhoneBook::Contact_index = (PhoneBook::Contact_index + 1) % 8;
+	PhoneBook::Contact_index = (PhoneBook::Contact_index + 1) % MAX_ENTRIES;
 
 	std::cout << "Contact added successfully!" << std::endl;
 }
@@ -39,7 +39,7 @@ void	PhoneBook::searchContact() const
 	std::string	search;
 
 	std::getline(std::cin, search);
-	while(i < 8)
+	while(i < MAX_ENTRIES)
 	{
 		if(phonebook[i].getFirstName() == search || phonebook[i].getLastName() == search
 			|| phonebook[i].getNicname() == search || phonebook[i].getDarkestSecret() == search)

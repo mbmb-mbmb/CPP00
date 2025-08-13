@@ -14,6 +14,7 @@ class PhoneBook
 	private:
 	Contact	phonebook[8];
 	int		Contact_index = 0;
+	int		MAX_ENTRIES = 8;
 };
 
 #endif
