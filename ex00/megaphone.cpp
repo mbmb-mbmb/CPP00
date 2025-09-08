@@ -3,8 +3,7 @@
 
 std::string	ft_transform(std::string input)
 {
-	//std::string	output;
-	int			i = 0;
+	int		i = 0;
 
 	while(i < input.size())
 	{
@@ -16,8 +15,8 @@ std::string	ft_transform(std::string input)
 
 int		main(int ac, char **av)
 {
-	std::string input;
-	int i = 1;
+	std::string		input;
+	int				i = 1;
 
 	if (ac < 2)
 	{
