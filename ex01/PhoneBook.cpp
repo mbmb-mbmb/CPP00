@@ -30,7 +30,6 @@ void	PhoneBook::addContact()
 	phonebook[Contact_index] = newContact;
 	PhoneBook::Contact_index = (PhoneBook::Contact_index + 1) % MAX_ENTRIES;
 
-	std::cout << "Contact added successfully!" << std::endl;
 }
 
 void	PhoneBook::searchContact() const
@@ -38,25 +37,9 @@ void	PhoneBook::searchContact() const
 	std::string		search;
 	int				found_one = 0;
 
-	std::getline(std::cin, search);
-	if (search == "")
-		return ;
-	for(int i = 0; i < MAX_ENTRIES; i++)
-	{
-		if(phonebook[i].getFirstName() == search || phonebook[i].getLastName() == search
-			|| phonebook[i].getNicname() == search || phonebook[i].getDarkestSecret() == search)
-		{
-			found_one = 1;
-			std::cout << phonebook[i].getFirstName();
-			std::cout << " | ";
-			std::cout << phonebook[i].getLastName();
-			std::cout << " | ";
-			std::cout << phonebook[i].getNicname();
-			std::cout << " | ";
-			std::cout << phonebook[i].getPhoneNumber();
-			std::cout << " | ";
-			std::cout << phonebook[i].getDarkestSecret() << std::endl;
-		}
+	//display index first name last name nicnem truncated to 10 char
+	//ask for an index number
+	//display all for that index
 	}
 	if (!found_one)
 		std::cout << "NOT FOUND" << std::endl; 
