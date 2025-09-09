@@ -26,7 +26,7 @@ int		main(int ac, char **av)
 	while(i < ac)
 	{
 		input = av[i];
-		std::cout << ft_transform(input);;
+		std::cout << ft_transform(input);
 		std::cout << " ";
 		i++;
 	}
