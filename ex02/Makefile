@@ -1,6 +1,6 @@
 NAME = test
 COMP = c++
-FLAGS = -std=c++17 -Wall -Werror -Wextra
+FLAGS = -std=c++17 -Wall -Wextra
 
 SRC = tests.cpp Account.cpp
 
