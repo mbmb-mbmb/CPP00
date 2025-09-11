@@ -10,6 +10,8 @@ class PhoneBook
 	void addContact();
 	void searchContact() const;
 	void displayOptions() const;
+	void displayPhonebook() const;
+	void displayContact(int index) const;
 
 	private:
 	Contact	phonebook[8];

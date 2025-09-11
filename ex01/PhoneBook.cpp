@@ -34,15 +34,24 @@ void	PhoneBook::addContact()
 
 void	PhoneBook::searchContact() const
 {
-	std::string		search;
-	int				found_one = 0;
+	int	index;
+	displayPhonebook();
+	std::cout << "Enter index: ";
+	std::cin >> index;
+	if (index >= 0 && index < MAX_ENTRIES)
+		displayContact(index);
+	else
+		std::cout << "ERROR" << std::endl; 
+}
 
-	//display index first name last name nicnem truncated to 10 char
-	//ask for an index number
-	//display all for that index
-	}
-	if (!found_one)
-		std::cout << "NOT FOUND" << std::endl; 
+void	PhoneBook::displayContact(int index) const
+{
+	
+}
+
+void	PhoneBook::displayPhonebook() const
+{
+
 }
 
 void	PhoneBook::displayOptions() const
