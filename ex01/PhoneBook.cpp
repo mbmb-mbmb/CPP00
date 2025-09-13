@@ -32,27 +32,45 @@ void	PhoneBook::addContact()
 
 }
 
+std::string	PhoneBook::truncateTen(const std::string &str) const
+{
+	if (str.length() <= 10)
+		return (std::string(10 - str.length(), ' ') + str);
+	return (str.substr(0, 9) + ".");
+}
+
 void	PhoneBook::searchContact() const
 {
 	int	index;
 	displayPhonebook();
 	std::cout << "ENTER INDEX: ";
 	std::cin >> index;
+	
+	if (std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore(10000, '\n');
+		std::cout << "ERROR: Invalid input" << std::endl;
+		return;
+	}
+	
 	std::cin.ignore();
 	if (index >= 0 && index < Contact_index)
 		displayContact(index);
 	else
+	{
 		std::cout << "ERROR: Invalid index" << std::endl;
+		return;
+	}
 }
 
 void	PhoneBook::displayContact(int index) const
 {
-	std::cout << "|" << index << 
-				"|" << phonebook[index].getFirstName() << 
-				"|" << phonebook[index].getLastName() <<
-				"|" << phonebook[index].getNicname() <<
-				"|" << phonebook[index].getPhoneNumber() <<
-				"|" << phonebook[index].getDarkestSecret() << std::endl;
+	std::cout << "First Name: " << phonebook[index].getFirstName() << std::endl;
+	std::cout << "Last Name: " << phonebook[index].getLastName() << std::endl;
+	std::cout << "Nickname: " << phonebook[index].getNicname() << std::endl;
+	std::cout << "Phone Number: " << phonebook[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret: " << phonebook[index].getDarkestSecret() << std::endl;
 				 
 }
 
@@ -64,14 +82,15 @@ void	PhoneBook::displayPhonebook() const
 
 	for(int i = 0; i < Contact_index; i++)
 	{
-		std::cout << "|" << i << 
-					"|" << phonebook[i].getFirstName() <<
-					"|" << phonebook[i].getLastName() <<
-					"|" << phonebook[i].getNicname() << std::endl;
+		std::cout << "|"<< std::string(9, ' ') << i <<
+					"|" << truncateTen(phonebook[i].getFirstName()) <<
+					"|" << truncateTen(phonebook[i].getLastName()) <<
+					"|" << truncateTen(phonebook[i].getNicname()) << 
+					"|" << std::endl;
 	}
 }
 
 void	PhoneBook::displayOptions() const
 {
-	std::cout<<"Commands: ADD, SEARCH or EXIT. Indexes 0 - 7." << std::endl;
+	std::cout<<"Commands: ADD, SEARCH or EXIT." << std::endl;
 }
