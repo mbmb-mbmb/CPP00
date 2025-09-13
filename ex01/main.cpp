@@ -6,9 +6,9 @@ int	main(void)
 	PhoneBook		phonebook;
 	std::string		input;
 
+	phonebook.displayOptions();
 	while(input != "EXIT")
 	{
-		//phonebook.displayOptions();
 		std::getline(std::cin, input);
 		if(input == "ADD")
 			phonebook.addContact();
