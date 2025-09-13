@@ -19,6 +19,7 @@ class PhoneBook
 	int		MAX_ENTRIES = 8;
 
 	std::string	truncateTen(const std::string &str) const;
+	int			isEmpty(std::string str);
 };
 
 #endif

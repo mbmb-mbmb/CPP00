@@ -11,14 +11,19 @@ void	PhoneBook::addContact()
 
 	std::cout << "Enter first name: ";
 	std::getline(std::cin, first_name);
+	if (isEmpty(first_name)) return ;
 	std::cout << "Enter last name: ";
 	std::getline(std::cin, last_name);
+	if (isEmpty(last_name)) return ;
 	std::cout << "Enter nickname: ";
 	std::getline(std::cin, nic_name);
+	if (isEmpty(nic_name)) return ;
 	std::cout << "Enter phone number: ";
 	std::getline(std::cin, phone_number);
+	if (isEmpty(phone_number)) return ;
 	std::cout << "Enter darkest secret: ";
 	std::getline(std::cin, darkest_secret);
+	if (isEmpty(darkest_secret)) return ;
 
 	Contact	newContact;
 	newContact.setFirstName(first_name);
@@ -30,6 +35,16 @@ void	PhoneBook::addContact()
 	phonebook[Contact_index] = newContact;
 	PhoneBook::Contact_index = (PhoneBook::Contact_index + 1) % MAX_ENTRIES;
 
+}
+
+int	PhoneBook::isEmpty(std::string str)
+{
+	if(str.empty())
+	{
+		std::cout << "Field can't be empty" << std::endl;
+		return (1);
+	}
+	return (0);
 }
 
 std::string	PhoneBook::truncateTen(const std::string &str) const
