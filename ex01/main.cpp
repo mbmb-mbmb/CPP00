@@ -8,14 +8,14 @@ int	main(void)
 
 	while(input != "EXIT")
 	{
-		phonebook.displayOptions();
+		//phonebook.displayOptions();
 		std::getline(std::cin, input);
 		if(input == "ADD")
 			phonebook.addContact();
 		else if (input == "SEARCH")	
 			phonebook.searchContact();
 		else if (input != "EXIT")
-			std::cout << "invalid" << std::endl;
+			std::cout << "invalid command" << std::endl;
 	}
 	return (0);
 }

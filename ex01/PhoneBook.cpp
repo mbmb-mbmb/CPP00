@@ -36,25 +36,42 @@ void	PhoneBook::searchContact() const
 {
 	int	index;
 	displayPhonebook();
-	std::cout << "Enter index: ";
+	std::cout << "ENTER INDEX: ";
 	std::cin >> index;
-	if (index >= 0 && index < MAX_ENTRIES)
+	std::cin.ignore();
+	if (index >= 0 && index < Contact_index)
 		displayContact(index);
 	else
-		std::cout << "ERROR" << std::endl; 
+		std::cout << "ERROR: Invalid index" << std::endl;
 }
 
 void	PhoneBook::displayContact(int index) const
 {
-	
+	std::cout << "|" << index << 
+				"|" << phonebook[index].getFirstName() << 
+				"|" << phonebook[index].getLastName() <<
+				"|" << phonebook[index].getNicname() <<
+				"|" << phonebook[index].getPhoneNumber() <<
+				"|" << phonebook[index].getDarkestSecret() << std::endl;
+				 
 }
 
 void	PhoneBook::displayPhonebook() const
 {
 
+	std::cout << "|Index     |First Name|Last Name |Nickname  |" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
+
+	for(int i = 0; i < Contact_index; i++)
+	{
+		std::cout << "|" << i << 
+					"|" << phonebook[i].getFirstName() <<
+					"|" << phonebook[i].getLastName() <<
+					"|" << phonebook[i].getNicname() << std::endl;
+	}
 }
 
 void	PhoneBook::displayOptions() const
 {
-	std::cout<<"PHONEBOOK! ADD, SEARCH or EXIT" << std::endl;
+	std::cout<<"Commands: ADD, SEARCH or EXIT. Indexes 0 - 7." << std::endl;
 }
