@@ -6,7 +6,7 @@
 /*   By: mbonsdor <mbonsdor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:09:36 by mbonsdor          #+#    #+#             */
-/*   Updated: 2025/09/15 11:09:37 by mbonsdor         ###   ########.fr       */
+/*   Updated: 2025/09/15 16:20:16 by mbonsdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class PhoneBook
 
 	std::string	truncateTen(const std::string &str) const;
 	int			isEmpty(std::string str);
+	int			isEOF();
 };
 
 #endif
