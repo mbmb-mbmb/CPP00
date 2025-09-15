@@ -6,7 +6,7 @@
 /*   By: mbonsdor <mbonsdor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:09:24 by mbonsdor          #+#    #+#             */
-/*   Updated: 2025/09/15 11:16:46 by mbonsdor         ###   ########.fr       */
+/*   Updated: 2025/09/15 13:37:47 by mbonsdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	main(void)
 	while(input != "EXIT")
 	{
 		if(!std::getline(std::cin, input))
+		{
+			std::cout << "Exiting Phonebook." << std::endl;
 			break ;
+		}
 		if(input == "ADD")
 			phonebook.addContact();
 		else if (input == "SEARCH")
@@ -32,3 +35,4 @@ int	main(void)
 	}
 	return (0);
 }
+

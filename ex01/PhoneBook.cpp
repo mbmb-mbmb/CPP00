@@ -6,7 +6,7 @@
 /*   By: mbonsdor <mbonsdor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:09:33 by mbonsdor          #+#    #+#             */
-/*   Updated: 2025/09/15 12:22:51 by mbonsdor         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:27:53 by mbonsdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,48 @@ void	PhoneBook::addContact()
 	std::string first_name, last_name, nic_name, phone_number, darkest_secret;
 
 	std::cout << "Enter first name: ";
-	if(!std::getline(std::cin, first_name)) return ;
-	if (isEmpty(first_name)) return ;
+	std::getline(std::cin, first_name);
+	if(std::cin.eof())
+	{
+		std::cout << std::endl;
+		return ;
+	}
+	if(isEmpty(first_name)) return ;
 
 	std::cout << "Enter last name: ";
-	if (!std::getline(std::cin, last_name)) return ;
-	if (isEmpty(last_name)) return ;
+	std::getline(std::cin, last_name);
+	if(std::cin.eof())
+	{
+		std::cout << std::endl;
+		return ;
+	}
+	if(isEmpty(last_name)) return ;
 
 	std::cout << "Enter nickname: ";
-	if (!std::getline(std::cin, nic_name)) return ;
+	std::getline(std::cin, nic_name);
+	if(std::cin.eof())
+	{
+		std::cout << std::endl;
+		return ;
+	}
 	if (isEmpty(nic_name)) return ;
 
 	std::cout << "Enter phone number: ";
-	if (!std::getline(std::cin, phone_number)) return ;
+	std::getline(std::cin, phone_number);
+	if(std::cin.eof())
+	{
+		std::cout << std::endl;
+		return ;
+	}
 	if (isEmpty(phone_number)) return ;
 
 	std::cout << "Enter darkest secret: ";
-	if (!std::getline(std::cin, darkest_secret)) return;
+	std::getline(std::cin, darkest_secret);
+	if(std::cin.eof())
+	{
+		std::cout << std::endl;
+		return ;
+	}
 	if (isEmpty(darkest_secret)) return ;
 
 	Contact	newContact;
@@ -50,7 +75,6 @@ void	PhoneBook::addContact()
 
 	phonebook[Contact_index] = newContact;
 	PhoneBook::Contact_index = (PhoneBook::Contact_index + 1) % MAX_ENTRIES;
-
 }
 
 int	PhoneBook::isEmpty(std::string str)
@@ -72,27 +96,20 @@ std::string	PhoneBook::truncateTen(const std::string &str) const
 
 void	PhoneBook::searchContact() const
 {
-	int	index;
+	std::string	index;
+
 	displayPhonebook();
 	std::cout << "ENTER INDEX: ";
-	std::cin >> index;
-
-	if (std::cin.fail())
+	if(!std::getline(std::cin, index))
 	{
-		std::cin.clear();
-		std::cin.ignore(10000, '\n');
-		std::cout << "ERROR: Invalid input" << std::endl;
-		return;
+		std::cout << std::endl;
+		return ;
 	}
 
-	std::cin.ignore();
-	if (index >= 0 && index < Contact_index)
-		displayContact(index);
+	if(index.length() == 1 && index >= "1" && index <= "8")
+		displayContact(stoi(index) - 1);
 	else
-	{
 		std::cout << "ERROR: Invalid index" << std::endl;
-		return;
-	}
 }
 
 void	PhoneBook::displayContact(int index) const
@@ -113,7 +130,7 @@ void	PhoneBook::displayPhonebook() const
 
 	for(int i = 0; i < Contact_index; i++)
 	{
-		std::cout << "|"<< std::string(9, ' ') << i <<
+		std::cout << "|"<< std::string(9, ' ') << i + 1 <<
 					"|" << truncateTen(phonebook[i].getFirstName()) <<
 					"|" << truncateTen(phonebook[i].getLastName()) <<
 					"|" << truncateTen(phonebook[i].getNicname()) <<
