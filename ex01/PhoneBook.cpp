@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbonsdor <mbonsdor@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 11:09:33 by mbonsdor          #+#    #+#             */
+/*   Updated: 2025/09/15 11:09:34 by mbonsdor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include <iostream>
@@ -60,7 +72,7 @@ void	PhoneBook::searchContact() const
 	displayPhonebook();
 	std::cout << "ENTER INDEX: ";
 	std::cin >> index;
-	
+
 	if (std::cin.fail())
 	{
 		std::cin.clear();
@@ -68,7 +80,7 @@ void	PhoneBook::searchContact() const
 		std::cout << "ERROR: Invalid input" << std::endl;
 		return;
 	}
-	
+
 	std::cin.ignore();
 	if (index >= 0 && index < Contact_index)
 		displayContact(index);
@@ -86,7 +98,7 @@ void	PhoneBook::displayContact(int index) const
 	std::cout << "Nickname: " << phonebook[index].getNicname() << std::endl;
 	std::cout << "Phone Number: " << phonebook[index].getPhoneNumber() << std::endl;
 	std::cout << "Darkest Secret: " << phonebook[index].getDarkestSecret() << std::endl;
-				 
+
 }
 
 void	PhoneBook::displayPhonebook() const
@@ -100,7 +112,7 @@ void	PhoneBook::displayPhonebook() const
 		std::cout << "|"<< std::string(9, ' ') << i <<
 					"|" << truncateTen(phonebook[i].getFirstName()) <<
 					"|" << truncateTen(phonebook[i].getLastName()) <<
-					"|" << truncateTen(phonebook[i].getNicname()) << 
+					"|" << truncateTen(phonebook[i].getNicname()) <<
 					"|" << std::endl;
 	}
 }

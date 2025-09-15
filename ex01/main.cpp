@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbonsdor <mbonsdor@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 11:09:24 by mbonsdor          #+#    #+#             */
+/*   Updated: 2025/09/15 11:09:25 by mbonsdor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
@@ -12,7 +24,7 @@ int	main(void)
 		std::getline(std::cin, input);
 		if(input == "ADD")
 			phonebook.addContact();
-		else if (input == "SEARCH")	
+		else if (input == "SEARCH")
 			phonebook.searchContact();
 		else if (input != "EXIT")
 			std::cout << "invalid command" << std::endl;
