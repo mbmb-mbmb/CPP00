@@ -6,7 +6,7 @@
 /*   By: mbonsdor <mbonsdor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:09:24 by mbonsdor          #+#    #+#             */
-/*   Updated: 2025/09/15 11:09:25 by mbonsdor         ###   ########.fr       */
+/*   Updated: 2025/09/15 11:16:46 by mbonsdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(void)
 	phonebook.displayOptions();
 	while(input != "EXIT")
 	{
-		std::getline(std::cin, input);
+		if(!std::getline(std::cin, input))
+			break ;
 		if(input == "ADD")
 			phonebook.addContact();
 		else if (input == "SEARCH")

@@ -6,7 +6,7 @@
 /*   By: mbonsdor <mbonsdor@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:09:33 by mbonsdor          #+#    #+#             */
-/*   Updated: 2025/09/15 11:09:34 by mbonsdor         ###   ########.fr       */
+/*   Updated: 2025/09/15 12:22:51 by mbonsdor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,23 @@ void	PhoneBook::addContact()
 	std::string first_name, last_name, nic_name, phone_number, darkest_secret;
 
 	std::cout << "Enter first name: ";
-	std::getline(std::cin, first_name);
+	if(!std::getline(std::cin, first_name)) return ;
 	if (isEmpty(first_name)) return ;
+
 	std::cout << "Enter last name: ";
-	std::getline(std::cin, last_name);
+	if (!std::getline(std::cin, last_name)) return ;
 	if (isEmpty(last_name)) return ;
+
 	std::cout << "Enter nickname: ";
-	std::getline(std::cin, nic_name);
+	if (!std::getline(std::cin, nic_name)) return ;
 	if (isEmpty(nic_name)) return ;
+
 	std::cout << "Enter phone number: ";
-	std::getline(std::cin, phone_number);
+	if (!std::getline(std::cin, phone_number)) return ;
 	if (isEmpty(phone_number)) return ;
+
 	std::cout << "Enter darkest secret: ";
-	std::getline(std::cin, darkest_secret);
+	if (!std::getline(std::cin, darkest_secret)) return;
 	if (isEmpty(darkest_secret)) return ;
 
 	Contact	newContact;
