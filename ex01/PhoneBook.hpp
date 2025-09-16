@@ -29,6 +29,7 @@ class PhoneBook
 	Contact	phonebook[8];
 	int		Contact_index = 0;
 	int		MAX_ENTRIES = 8;
+	int		total_contacts = 0;
 
 	std::string	truncateTen(const std::string &str) const;
 	int			isEmpty(std::string str);

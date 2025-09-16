@@ -49,7 +49,9 @@ void	PhoneBook::addContact()
 	newContact.setDarkestSecret(darkest_secret);
 
 	phonebook[Contact_index] = newContact;
-	PhoneBook::Contact_index = (PhoneBook::Contact_index + 1) % MAX_ENTRIES;
+	Contact_index = (Contact_index + 1) % MAX_ENTRIES;
+	if (total_contacts < MAX_ENTRIES)
+		total_contacts++;
 }
 
 int	PhoneBook::isEOF()
@@ -92,7 +94,7 @@ void	PhoneBook::searchContact() const
 		return ;
 	}
 
-	if(index.length() == 1 && index >= "1" && index <= "8" && stoi(index) <= Contact_index)
+	if(index.length() == 1 && index >= "1" && index <= "8" && stoi(index) <= total_contacts)
 		displayContact(stoi(index) - 1);
 	else
 		std::cout << "ERROR: Invalid index" << std::endl;
@@ -114,7 +116,7 @@ void	PhoneBook::displayPhonebook() const
 	std::cout << "|Index     |First Name|Last Name |Nickname  |" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 
-	for(int i = 0; i < Contact_index; i++)
+	for(int i = 0; i < total_contacts; i++)
 	{
 		std::cout << "|"<< std::string(9, ' ') << i + 1 <<
 					"|" << truncateTen(phonebook[i].getFirstName()) <<
